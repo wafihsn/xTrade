@@ -4,12 +4,13 @@ const cors = require('cors');
 const fetch = require('node-fetch'); // Ensure you have node-fetch installed: npm install node-fetch
 
 const app = express();
-const PORT = 3000;
+
+// Use the PORT environment variable provided by Render, with a fallback to 3000 if not set.
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 const XTRADE_API_URL = 'https://www.xtrade.com/api/lead/create'; // Replace with the actual Xtrade API endpoint
 
@@ -74,6 +75,7 @@ app.post('/api/lead/create', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+// Listen on the port provided by the PORT environment variable
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
