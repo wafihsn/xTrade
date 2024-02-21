@@ -13,9 +13,7 @@ function submitLead() {
 
     console.log(leadData)
 
-    // Make a POST request to the server
-    // fetch('https://xrade-api.onrender.com/api/lead/create', {
-    fetch('http://localhost:3000/api/lead/create', {
+    fetch('https://xrade-api.onrender.com/api/lead/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
